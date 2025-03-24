@@ -1,0 +1,92 @@
+{
+    "database": {
+      "name": "EmployeeDB",
+      "version": "1.0",
+      "description": "A sample database storing employee records, departments, and projects information.",
+      "tables": [
+        {
+          "table_name": "employees",
+          "description": "Table containing employee details.",
+          "columns": [
+            {
+              "name": "employee_id",
+              "type": "integer",
+              "constraints": ["primary key", "auto_increment"]
+            },
+            {
+              "name": "first_name",
+              "type": "varchar(50)",
+              "constraints": ["not null"]
+            },
+            {
+              "name": "last_name",
+              "type": "varchar(50)",
+              "constraints": ["not null"]
+            },
+            {
+              "name": "email",
+              "type": "varchar(100)",
+              "constraints": ["unique", "not null"]
+            },
+            {
+              "name": "department_id",
+              "type": "integer",
+              "constraints": ["foreign key"]
+            }
+          ]
+        },
+        {
+          "table_name": "departments",
+          "description": "Table storing department information.",
+          "columns": [
+            {
+              "name": "department_id",
+              "type": "integer",
+              "constraints": ["primary key", "auto_increment"]
+            },
+            {
+              "name": "department_name",
+              "type": "varchar(100)",
+              "constraints": ["not null"]
+            }
+          ]
+        },
+        {
+          "table_name": "projects",
+          "description": "Table containing project details.",
+          "columns": [
+            {
+              "name": "project_id",
+              "type": "integer",
+              "constraints": ["primary key", "auto_increment"]
+            },
+            {
+              "name": "project_name",
+              "type": "varchar(100)",
+              "constraints": ["not null"]
+            },
+            {
+              "name": "start_date",
+              "type": "date",
+              "constraints": ["not null"]
+            },
+            {
+              "name": "end_date",
+              "type": "date",
+              "constraints": []
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "relationship": "one-to-many",
+          "from_table": "departments",
+          "to_table": "employees",
+          "foreign_key": "department_id",
+          "description": "Each department can have multiple employees."
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,9 @@
+PyMuPDF
+groq
+ollama
+openai
+google-generativeai
+fastapi
+python-dotenv
+uvicorn
+websockets
